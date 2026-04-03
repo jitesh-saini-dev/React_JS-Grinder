@@ -2,10 +2,11 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import Counter from "./Components/Counter";
-import Signup from "../../../PROJECTS/My-Portfolio/src/Signup";
-import Signin from "../../../PROJECTS/My-Portfolio/src/Signin";
+
 import New from "../../../PRACTICE/practice1/src/Components/New";
 import Newtwo from "./Components/Newtwo";
+import Signup from "./Components/Signup";
+import Signin from "./Components/Signin";
 
 const App = () => {
   const objhome = {
