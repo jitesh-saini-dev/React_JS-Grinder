@@ -12,7 +12,7 @@ const New = ({ objhome }) => {
             className="product-image"
           />
 
-          <hr />
+          {/* <hr /> */}
 
           <div className="product-details">
             <p>
