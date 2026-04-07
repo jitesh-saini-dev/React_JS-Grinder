@@ -1,0 +1,176 @@
+/* 🎥 VIDEO BACKGROUND */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-background::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* WRAPPER */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  padding: 15px 10px;
+}
+
+/* GLASS FORM 🔥 */
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #000000; /* all text black */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+
+  animation: slideUp 0.8s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-header h2 {
+  font-size: 24px;
+  color: #000000; /* black */
+}
+
+.form-header p {
+  font-size: 14px;
+  opacity: 0.8;
+  color: #000000; /* black */
+}
+
+/* GRID */
+.signup-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+/* INPUT */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000000; /* black */
+}
+
+/* INPUT STYLE */
+input,
+textarea,
+select {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.4); /* slightly lighter glass for visibility */
+  color: #000000; /* black text */
+}
+
+/* PLACEHOLDERS - ALL BROWSERS */
+input::placeholder,
+textarea::placeholder,
+select::placeholder,
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+select::-webkit-input-placeholder,
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+select:-ms-input-placeholder,
+input::-moz-placeholder,
+textarea::-moz-placeholder,
+select::-moz-placeholder {
+    color: #000000 !important; /* black placeholder */
+    opacity: 1 !important;      /* fully visible */
+}
+
+/* RADIO */
+.radio-options {
+  display: flex;
+  gap: 14px;
+  color: #000000; /* black text for radio labels */
+}
+
+/* RANGE */
+.slider-value {
+  margin-left: 8px;
+  font-weight: bold;
+  color: #000000; /* black */
+}
+
+/* BUTTON 🔥 */
+.submit-btn {
+  padding: 12px;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #000000; /* black button text */
+  cursor: pointer;
+
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.6);
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(118, 75, 162, 1);
+}
+
+/* MOBILE */
+@media (max-width: 650px) {
+  .signup-form {
+    grid-template-columns: 1fr;
+  }
+  .full-width {
+    grid-column: span 1;
+  }
+}

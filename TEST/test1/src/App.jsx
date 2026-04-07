@@ -1791,12 +1791,14 @@ const App = () => {
     limit: 30,
   };
 
+  localStorage.setItem("userdata", JSON.stringify(objhome));
+
   return (
     <>
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/home" element={<Home objhome={objhome} />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </>

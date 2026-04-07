@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
-const Home = ({ objhome }) => {
-  const [products, setProducts] = useState(objhome.products);
+const Home = () => {
+  const data = localStorage.getItem("userdata");
+  const ans = JSON.parse(data);
+
+  const [products, setProducts] = useState(ans.products);
 
   const [id, setId] = useState("");
   const [title, setTitle] = useState("");
@@ -12,33 +15,28 @@ const Home = ({ objhome }) => {
   const [rating, setRating] = useState("");
   const [stock, setStock] = useState("");
 
-  
-
   function HandleSubmit(e) {
     e.preventDefault();
 
     const newProduct = {
-      id: Number(id),
+      id,
       title,
       description,
       category,
-      price: Number(price),
-      discountPercentage: Number(discountPercentage),
-      rating: Number(rating),
-      stock: Number(stock),
+      price,
+      discountPercentage,
+      rating,
+      stock,
 
-      // optional fields (empty for now)
       tags: [],
       brand: "",
       sku: "",
       weight: 0,
       dimensions: { width: 0, height: 0, depth: 0 },
-    };
+    }; 
 
-    // ✅ UI me add kar diya
     setProducts([...products, newProduct]);
 
-    // ✅ form reset
     setId("");
     setTitle("");
     setDescription("");
@@ -113,23 +111,53 @@ const Home = ({ objhome }) => {
 
       <main>
         {products.map((val) => (
-          <div key={val.id} style={{ border: "1px solid black", margin: "10px", padding: "10px" }}>
-            <p><b>Id</b> {val.id}</p>
-            <p><b>Title</b> {val.title}</p>
-            <p><b>Description</b> {val.description}</p>
-            <p><b>Category</b> {val.category}</p>
-            <p><b>Price</b> {val.price}</p>
-            <p><b>Discount</b> {val.discountPercentage}</p>
-            <p><b>Rating</b> {val.rating}</p>
-            <p><b>Stock</b> {val.stock}</p>
-            <p><b>Tags</b> {val.tags?.join(", ")}</p>
-            <p><b>Brand</b> {val.brand}</p>
-            <p><b>SKU</b> {val.sku}</p>
-            <p><b>Weight</b> {val.weight}</p>
+          <div
+            key={val.id}
+            style={{
+              border: "1px solid black",
+              margin: "10px",
+              padding: "10px",
+            }}
+          >
             <p>
-              <b>Dimensions</b>{" "}
-              {val.dimensions?.width} x {val.dimensions?.height} x{" "}
-              {val.dimensions?.depth}
+              <b>Id</b> {val.id}
+            </p>
+            <p>
+              <b>Title</b> {val.title}
+            </p>
+            <p>
+              <b>Description</b> {val.description}
+            </p>
+            <p>
+              <b>Category</b> {val.category}
+            </p>
+            <p>
+              <b>Price</b> {val.price}
+            </p>
+            <p>
+              <b>Discount</b> {val.discountPercentage}
+            </p>
+            <p>
+              <b>Rating</b> {val.rating}
+            </p>
+            <p>
+              <b>Stock</b> {val.stock}
+            </p>
+            <p>
+              <b>Tags</b> {val.tags?.join(", ")}
+            </p>
+            <p>
+              <b>Brand</b> {val.brand}
+            </p>
+            <p>
+              <b>SKU</b> {val.sku}
+            </p>
+            <p>
+              <b>Weight</b> {val.weight}
+            </p>
+            <p>
+              <b>Dimensions</b> {val.dimensions?.width} x{" "}
+              {val.dimensions?.height} x {val.dimensions?.depth}
             </p>
           </div>
         ))}
