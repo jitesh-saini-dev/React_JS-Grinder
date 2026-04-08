@@ -369,7 +369,6 @@ const Signup = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* Name */}
       <input
         value={form.name}
         placeholder="Name"
@@ -378,7 +377,6 @@ const Signup = () => {
       />
       {nameError && <p style={{ color: "red" }}>{nameError}</p>}
 
-      {/* Email */}
       <input
         value={form.email}
         placeholder="Email"
@@ -387,7 +385,6 @@ const Signup = () => {
       />
       {emailError && <p style={{ color: "red" }}>{emailError}</p>}
 
-      {/* Password */}
       <input
         type="password"
         value={form.password}
@@ -397,7 +394,6 @@ const Signup = () => {
       />
       {passwordError && <p style={{ color: "red" }}>{passwordError}</p>}
 
-      {/* Age */}
       <input
         value={form.age}
         placeholder="Age"
@@ -406,7 +402,6 @@ const Signup = () => {
       />
       {ageError && <p style={{ color: "red" }}>{ageError}</p>}
 
-      {/* Address */}
       <input
         value={form.address}
         placeholder="Address"
@@ -415,7 +410,6 @@ const Signup = () => {
       />
       {addressError && <p style={{ color: "red" }}>{addressError}</p>}
 
-      {/* City */}
       <input
         value={form.city}
         placeholder="City"
@@ -424,7 +418,6 @@ const Signup = () => {
       />
       {cityError && <p style={{ color: "red" }}>{cityError}</p>}
 
-      {/* State */}
       <input
         value={form.state}
         placeholder="State"
@@ -433,7 +426,6 @@ const Signup = () => {
       />
       {stateError && <p style={{ color: "red" }}>{stateError}</p>}
 
-      {/* Country */}
       <input
         value={form.country}
         placeholder="Country"
@@ -442,7 +434,6 @@ const Signup = () => {
       />
       {countryError && <p style={{ color: "red" }}>{countryError}</p>}
 
-      {/* Phone */}
       <input
         value={form.phone}
         placeholder="Phone"
@@ -451,7 +442,6 @@ const Signup = () => {
       />
       {phoneError && <p style={{ color: "red" }}>{phoneError}</p>}
 
-      {/* Pincode */}
       <input
         value={form.pincode}
         placeholder="Pincode"
@@ -460,7 +450,6 @@ const Signup = () => {
       />
       {pincodeError && <p style={{ color: "red" }}>{pincodeError}</p>}
 
-      {/* Gender */}
       <input
         value={form.gender}
         placeholder="Gender"
@@ -469,7 +458,6 @@ const Signup = () => {
       />
       {genderError && <p style={{ color: "red" }}>{genderError}</p>}
 
-      {/* Occupation */}
       <input
         value={form.occupation}
         placeholder="Occupation"
@@ -478,7 +466,6 @@ const Signup = () => {
       />
       {occupationError && <p style={{ color: "red" }}>{occupationError}</p>}
 
-      {/* Company */}
       <input
         value={form.company}
         placeholder="Company"
@@ -487,7 +474,6 @@ const Signup = () => {
       />
       {companyError && <p style={{ color: "red" }}>{companyError}</p>}
 
-      {/* Website */}
       <input
         value={form.website}
         placeholder="Website"
@@ -496,7 +482,6 @@ const Signup = () => {
       />
       {websiteError && <p style={{ color: "red" }}>{websiteError}</p>}
 
-      {/* Bio */}
       <input
         value={form.bio}
         placeholder="Bio"
