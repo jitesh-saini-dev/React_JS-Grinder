@@ -20,6 +20,9 @@ const Header = () => {
         <Link to={"/newtwo"} className="link">
         New2
       </Link>
+       <Link to={"/api"} className="link">
+        Api
+      </Link>
     </div>
   );
 };

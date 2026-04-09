@@ -7,6 +7,7 @@ import New from "../../../PRACTICE/practice1/src/Components/New";
 import Newtwo from "./Components/Newtwo";
 import Signup from "./Components/Signup";
 import Signin from "./Components/Signin";
+import Api from "./Components/Api";
 
 const App = () => {
   const objhome = {
@@ -2021,6 +2022,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/new" element={<New objhome={objhome} />} />
         <Route path="/newtwo" element={<Newtwo newarr={newarr} />} />
+        <Route path="/api" element={<Api objhome={objhome} />} />
       </Routes>
     </BrowserRouter>
   );
