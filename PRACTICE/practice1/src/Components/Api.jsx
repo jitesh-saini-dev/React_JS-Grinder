@@ -7,21 +7,11 @@ const Api = ({ objhome }) => {
   // const [toggle, setToggle] = useState(false);
   const [merge, setmerge] = useState([]);
 
-  // const fetchData = async () => {
-  //   const result = await axios.get("https://dummyjson.com/products");
-  //   // console.log(result);
-
-  //   setData(result.data);
-  //   const mergedata = [...result.data.products, ...objhome.products];
-  //   setmerge(mergedata);
-  // };
-
-
-    const fetchData = async () => {
+  const fetchData = async () => {
     const result = await axios.get("https://dummyjson.com/products");
 
     setData(result.data.products);
-    setmerge(result.data.products); // initial show
+    setmerge(result.data.products);
   };
   // const handlechange = () => {
   //   setToggle(!toggle);
@@ -31,13 +21,34 @@ const Api = ({ objhome }) => {
   //   setmerge([result.data, ...objhome]);
   // };
 
-    const handleMerge = () => {
+  const handleMerge = () => {
     const mergedata = [...data, ...objhome.products];
     setmerge(mergedata);
   };
 
+  const handleEven = () => {
+    const evendata = [...data, ...objhome.products];
+
+    const even = evendata.filter((x) => x.id % 2 == 0);
+    setmerge([]);
+    setmerge(even);
+  };
+
+  const handleOdd = () => {
+    const odddata = [...data, ...objhome.products];
+
+    const odd = odddata.filter((x) => x.id % 2 !== 0);
+    setmerge([]);
+    setmerge(odd);
+  };
+
+  const handleUnMerge = () => {
+    const UnMergedata = [...data];
+    setmerge(UnMergedata);
+  };
+
   useEffect(() => {
-    fetchData();  
+    fetchData();
   }, []);
 
   return (
@@ -46,10 +57,14 @@ const Api = ({ objhome }) => {
       {/* <button onClick={handlechange}>Toggle</button> */}
 
       <button onClick={handleMerge}>Merge</button>
+      <button onClick={handleEven}>EVEN</button>
+      <button onClick={handleOdd}>ODD</button>
+
+      <button onClick={handleUnMerge}>UnMerge</button>
 
       <main>
-        {merge?.map((item) => (
-          <div key={item.id} className="box">
+        {merge?.map((item,id) => (
+          <div key={id} className="box">
             <div className="imgbox">
               <img src={item.images[0]} alt="" className="img" />
             </div>
