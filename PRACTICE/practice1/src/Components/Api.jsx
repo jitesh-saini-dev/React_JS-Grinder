@@ -17,10 +17,6 @@ const Api = ({ objhome }) => {
   //   setToggle(!toggle);
   // };
 
-  // const handlemerge = () => {
-  //   setmerge([result.data, ...objhome]);
-  // };
-
   const handleMerge = () => {
     const mergedata = [...data, ...objhome.products];
     setmerge(mergedata);
@@ -63,7 +59,7 @@ const Api = ({ objhome }) => {
       <button onClick={handleUnMerge}>UnMerge</button>
 
       <main>
-        {merge?.map((item,id) => (
+        {merge?.map((item, id) => (
           <div key={id} className="box">
             <div className="imgbox">
               <img src={item.images[0]} alt="" className="img" />
