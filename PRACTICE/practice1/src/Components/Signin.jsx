@@ -7,7 +7,6 @@ const Signin = () => {
     password: "",
   });
 
-
   function handleSubmit(e) {
     e.preventDefault(); // refresh ko rokega
 
@@ -22,8 +21,6 @@ const Signin = () => {
     //   alert("email is required");
     //   return;
     // }
-
-    
 
     const result = JSON.parse(localStorage.getItem("user"));
     console.log(">>>>>result", result);

@@ -55,7 +55,6 @@ const Api = ({ objhome }) => {
       <button onClick={handleMerge}>Merge</button>
       <button onClick={handleEven}>EVEN</button>
       <button onClick={handleOdd}>ODD</button>
-
       <button onClick={handleUnMerge}>UnMerge</button>
 
       <main>
