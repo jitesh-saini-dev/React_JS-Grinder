@@ -49,8 +49,6 @@
   border-radius: 0.25rem;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
-
-
 }
 
 .review-comment {
@@ -59,4 +57,83 @@
 
 .review-author {
   font-size: 0.75rem;
+}
+/* .searchingbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+.search {
+  border-radius: 10px;
+  width: 40%;
+  padding: 10px;
+} */
+/*  */
+
+/* Center wrapper */
+.searchingbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+/* Animated border box */
+.animated-border-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 40%;
+  min-width: 250px;
+  background: #fff;
+}
+
+/* Rotating smooth gradient border */
+.animated-border-box::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    #4285f4,
+    #ea4335,
+    #fbbc05,
+    #34a853,
+    #4285f4
+  );
+  animation: golGhumo 3s linear infinite;
+}
+
+/* Inner white layer (clean look) */
+.animated-border-box::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: white;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+/* Input field */
+.animated-border-box input.animated-input {
+  position: relative;
+  z-index: 2;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  background: transparent;
+  color: #333;
+  width: 100%;
+}
+
+/* Animation */
+@keyframes golGhumo {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
