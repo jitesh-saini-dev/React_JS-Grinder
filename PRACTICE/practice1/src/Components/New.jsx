@@ -31,16 +31,6 @@ const New = ({ objhome }) => {
   }
   return (
     <>
-      {/* <div className="searchingbox">
-        <input
-          type="text"
-          placeholder="Search here..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="search"
-        />
-      </div> */}
-
       <div className="searchingbox">
         <div className="animated-border-box">
           <input
@@ -53,7 +43,11 @@ const New = ({ objhome }) => {
         </div>
       </div>
       <div className="sortingbox">
-        <select value={sort} onChange={(e) => setSort(e.target.value)}>
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+          className="sort"
+        >
           <option value="" disabled>
             Sort by: Featured
           </option>
@@ -156,18 +150,12 @@ const New = ({ objhome }) => {
                 <b>MinimumOrderQuantity:</b> {item.minimumOrderQuantity}
               </p>
 
-              <p>
+              <div>
                 <b>Meta:</b> <br />
-                <p>
-                  <b>CreatedAt:</b> {item.meta.createdAt}
-                </p>
-                <p>
-                  <b>UpdatedAt:</b> {item.meta.updatedAt}
-                </p>
-                <p>
-                  <b>Barcode:</b> {item.meta.barcode}
-                </p>
-              </p>
+                <p>CreatedAt: {item.meta.createdAt}</p>
+                <p>UpdatedAt: {item.meta.updatedAt}</p>
+                <p>Barcode: {item.meta.barcode}</p>
+              </div>
             </div>
           </div>
         ))}

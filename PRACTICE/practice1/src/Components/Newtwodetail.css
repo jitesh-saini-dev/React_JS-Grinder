@@ -1,0 +1,78 @@
+.detail-container {
+  padding: 20px;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+
+.back-btn {
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: #555;
+}
+
+.detail-card {
+  display: flex;
+  gap: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+}
+
+.detail-img {
+  width: 350px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.detail-content {
+  flex: 1;
+}
+
+.detail-content h1 {
+  margin-bottom: 10px;
+}
+
+.desc {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.info p {
+  margin: 6px 0;
+}
+
+.reviews {
+  margin-top: 20px;
+}
+
+.review-card {
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.not-found {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.not-found button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background: red;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}

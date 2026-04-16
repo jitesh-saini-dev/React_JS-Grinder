@@ -2,12 +2,13 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import Counter from "./Components/Counter";
-
 import New from "../../../PRACTICE/practice1/src/Components/New";
 import Newtwo from "./Components/Newtwo";
 import Signup from "./Components/Signup";
 import Signin from "./Components/Signin";
 import Api from "./Components/Api";
+// import Newtwodetail from "./Components/Newtwodetail";
+import Protectedroute from "./Components/Protectedroute";
 
 const App = () => {
   const objhome = {
@@ -2022,7 +2023,16 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/new" element={<New objhome={objhome} />} />
         <Route path="/newtwo" element={<Newtwo newarr={newarr} />} />
-        <Route path="/api" element={<Api objhome={objhome} />} />
+        {/* <Route path="/product/:id" element={<Newtwodetail newarr={newarr} />} /> */}
+        {/* <Route path="/api" element={<Api objhome={objhome} />} /> */}
+        <Route
+          path="/api"
+          element={
+            <Protectedroute>
+              <Api />
+            </Protectedroute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

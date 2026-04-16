@@ -25,15 +25,15 @@ const Signin = () => {
     const result = JSON.parse(localStorage.getItem("user"));
     console.log(">>>>>result", result);
 
-    // if (form.email !== result.email && form.password !== result.password) {
-    //   alert("Email & Password not matched");
-    // } else if (form.email !== result.email) {
-    //   alert("Email not matched");
-    // } else if (form.password !== result.password) {
-    //   alert("Password not matched");
-    // } else {
-    //   alert("Login Successfully");
-    // }
+    if (form.email !== result.email && form.password !== result.password) {
+      alert("Email & Password not matched");
+    } else if (form.email !== result.email) {
+      alert("Email not matched");
+    } else if (form.password !== result.password) {
+      alert("Password not matched");
+    } else {
+      alert("Login Successfully");
+    }
 
     setform({
       email: "",

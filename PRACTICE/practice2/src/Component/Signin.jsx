@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Signin.css";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const [form, setform] = useState({
@@ -7,15 +8,18 @@ const Signin = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const [userData, setUserData] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const storedData = localStorage.getItem("chacha");
+    const storedData = localStorage.getItem("user");
 
     if (!storedData) {
       alert("You Have to SignUp First!");
+      navigate("/"); // ya "/signup" agar route alag hai
       return;
     }
 
@@ -33,6 +37,7 @@ const Signin = () => {
     } else {
       alert("Login Successfully 🔥");
       setUserData(result);
+      localStorage.setItem("token", true);
     }
   };
 
