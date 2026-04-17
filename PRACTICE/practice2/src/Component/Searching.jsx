@@ -34,6 +34,7 @@ const Searching = () => {
       item.displayName.toLowerCase().includes(search.toLowerCase()) ||
       item.email.toLowerCase().includes(search.toLowerCase()),
   );
+  
   console.log(filtereddata);
 
   return (
