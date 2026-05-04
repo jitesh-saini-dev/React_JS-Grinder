@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.backbtn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  background-color: lightseagreen;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}

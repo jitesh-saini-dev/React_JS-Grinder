@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card {
+  width: 250px;
+  height: 350px;
+  gap: 20px;
+  margin: 10px;
+  padding: 10px;
+  background-color: lightseagreen;
+  border-radius: 10px;
+}
+.img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  /* border-radius: 50%; */
+}
+button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: rgb(93, 222, 138);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalcard {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 500px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.modalimg {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}

@@ -1,0 +1,90 @@
+/* EditForm.css */
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* TITLE */
+
+.edit-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+/* GRID */
+
+.edit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+/* INPUT */
+
+.edit-input {
+  width: 100%;
+  padding: 14px 16px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 14px;
+
+  background: #0f172a;
+  color: white;
+
+  font-size: 15px;
+
+  transition: 0.3s;
+}
+
+.edit-input::placeholder {
+  color: #cbd5e1;
+}
+
+.edit-input:focus {
+  box-shadow: 0 0 0 3px #38bdf8;
+}
+
+/* BUTTON */
+
+.update-btn {
+  border: none;
+  padding: 15px;
+
+  border-radius: 14px;
+
+  background: linear-gradient(
+    to right,
+    #06b6d4,
+    #2563eb
+  );
+
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.update-btn:hover {
+  transform: scale(1.02);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .edit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .edit-title {
+    font-size: 24px;
+  }
+}

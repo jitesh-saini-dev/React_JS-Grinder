@@ -72,7 +72,6 @@
 
 // export default Newtwodetail;
 
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -80,7 +79,6 @@ import { useParams, useNavigate } from "react-router-dom";
 const Newtwodetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-
   const [recipe, setRecipe] = useState(null);
 
   const fetchSingle = async () => {
@@ -95,18 +93,14 @@ const Newtwodetail = () => {
   if (!recipe) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <h2 className="text-xl font-semibold animate-pulse">
-          Loading...
-        </h2>
+        <h2 className="text-xl font-semibold animate-pulse">Loading...</h2>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      
       <div className="bg-white shadow-xl rounded-2xl max-w-2xl w-full p-6">
-        
         {/* Back Button */}
         <button
           className="mb-4 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition"
@@ -116,9 +110,7 @@ const Newtwodetail = () => {
         </button>
 
         {/* Title */}
-        <h1 className="text-3xl font-bold text-gray-800">
-          {recipe.name}
-        </h1>
+        <h1 className="text-3xl font-bold text-gray-800">{recipe.name}</h1>
 
         {/* Image */}
         <img
@@ -145,15 +137,11 @@ const Newtwodetail = () => {
 
         <ul className="mt-2 grid grid-cols-2 gap-2">
           {recipe.ingredients.map((ing, i) => (
-            <li
-              key={i}
-              className="bg-gray-100 px-3 py-2 rounded-lg text-sm"
-            >
+            <li key={i} className="bg-gray-100 px-3 py-2 rounded-lg text-sm">
               {ing}
             </li>
           ))}
         </ul>
-
       </div>
     </div>
   );

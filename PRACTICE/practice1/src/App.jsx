@@ -10,6 +10,7 @@ import Api from "./Components/Api";
 import Newtwodetail from "./Components/Newtwodetail";
 import Protectedroute from "./Components/Protectedroute";
 import "./App.css";
+import ShowUseApi from "./Components/ShowUseApi";
 
 const App = () => {
   const objhome = {
@@ -2034,6 +2035,9 @@ const App = () => {
             </Protectedroute>
           }
         />
+        <Route path="/showuseapi" element={<ShowUseApi />} />
+
+
       </Routes>
     </BrowserRouter>
   );

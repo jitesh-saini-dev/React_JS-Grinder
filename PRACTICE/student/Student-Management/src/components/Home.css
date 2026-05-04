@@ -1,0 +1,263 @@
+/* Home.css */
+
+.dashboard {
+  min-height: 100vh;
+  padding: 30px;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #020617);
+  font-family: sans-serif;
+}
+
+/* HEADER */
+
+.dashboard-header {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-header h1 {
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* FILTER */
+
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+
+  padding: 20px;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+
+.search-input,
+.sort-select {
+  padding: 12px 18px;
+  border: none;
+  outline: none;
+  border-radius: 14px;
+  background: #1e293b;
+  color: white;
+  min-width: 240px;
+  font-size: 15px;
+}
+
+.search-input::placeholder {
+  color: #cbd5e1;
+}
+
+/* GENDER BUTTONS */
+
+.gender-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.all-btn,
+.gender-btn {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.all-btn {
+  background: #475569;
+}
+
+.gender-btn {
+  background: linear-gradient(to right, #06b6d4, #3b82f6);
+}
+
+.all-btn:hover,
+.gender-btn:hover {
+  transform: scale(1.05);
+}
+
+/* TABLE */
+
+.table-container {
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+  text-align: center;
+}
+
+.student-table thead {
+  background: linear-gradient(to right, #0891b2, #2563eb);
+}
+
+.student-table th {
+  padding: 18px;
+  font-size: 15px;
+}
+
+.student-table td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.student-table tbody tr {
+  transition: 0.3s;
+}
+
+/* ALTERNATE ROW COLORS */
+
+.student-table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.student-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+
+/* IMAGE */
+
+.student-image {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #22d3ee;
+}
+
+/* BUTTONS */
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  border: none;
+  padding: 9px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  background: linear-gradient(to right, #f59e0b, #f97316);
+}
+
+.delete-btn {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  transform: scale(1.05);
+}
+
+/* NO DATA */
+
+.no-data {
+  padding: 25px;
+  color: #cbd5e1;
+  font-size: 18px;
+}
+
+/* MODAL */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  width: 400px;
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 25px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+
+  border: none;
+  background: transparent;
+  color: red;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input,
+  .sort-select {
+    width: 100%;
+  }
+
+  .dashboard-header h1 {
+    font-size: 25px;
+  }
+
+  .student-table th,
+  .student-table td {
+    padding: 12px;
+    font-size: 13px;
+  }
+}
+
+
+.MuiTablePagination-root {
+  color: white !important;
+}
+
+.MuiTablePagination-selectLabel,
+.MuiTablePagination-displayedRows {
+  color: white !important;
+}
+
+.MuiTablePagination-select,
+.MuiTablePagination-selectIcon {
+  color: white !important;
+}
+
+.MuiTablePagination-actions button {
+  color: white !important;
+}

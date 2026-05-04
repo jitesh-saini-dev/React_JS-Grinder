@@ -6,8 +6,14 @@ const Header = () => {
   return (
     <div className="navbar">
       <Link to={"/"} className="link">
-        Product
+        Home
       </Link>
+      <Link to={"/cart"} className="link">
+        Cart
+      </Link>
+      {/* <Link to={"/signup"} className="link">
+      Signup
+      </Link> */}
     </div>
   );
 };

@@ -1,0 +1,217 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+.products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.productcards {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  padding: 20px;
+}
+.cards {
+  margin: 10px;
+  padding: 20px 30px;
+  background-color: lightblue;
+  border-radius: 10px;
+  width: 220px;
+  display: flex;
+  align-items: center; 
+  text-align: center; 
+  flex-direction: column;
+  width: 300px;
+}
+.search {
+  width: 250px;        
+  height: 30px;      
+  padding: 8px 12px; 
+  border-radius: 6px;  
+  border: 1px solid #ccc;
+  font-size: 14px;
+} */
+
+
+/* Cart.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Light Theme Default */
+
+.products {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #f5f7fa;
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  transition: 0.3s ease;
+}
+
+.products h2,
+.products h3,
+.cards strong {
+  color: #111827;
+}
+
+.cards {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.cards p {
+  color: #374151;
+}
+
+.search,
+.sortbox select {
+  background: #fff;
+  color: #111;
+  border: 1px solid #d1d5db;
+}
+
+.backbtn {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.btns {
+  background: #1f2937;
+  color: white;
+}
+
+/* ================= DARK THEME ================= */
+
+.dark .products {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.dark .products h2,
+.dark .products h3,
+.dark .cards strong {
+  color: #ffffff;
+}
+
+.dark .cards {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.dark .cards p {
+  color: #cbd5e1;
+}
+
+.dark .search,
+.dark .sortbox select {
+  background: #1e293b;
+  color: white;
+  border: 1px solid #334155;
+}
+
+.dark .search::placeholder {
+  color: #94a3b8;
+}
+
+.dark .backbtn {
+  background: #1e293b;
+  color: white;
+}
+
+.dark .backbtn:hover {
+  background: #334155;
+}
+
+.dark .btns {
+  background: #334155;
+  color: white;
+}
+
+.dark .btns:hover {
+  background: #475569;
+}
+
+/* ================= COMMON ================= */
+
+.productcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 25px;
+}
+
+.cards {
+  backdrop-filter: blur(10px);
+  border-radius: 22px;
+  padding: 18px;
+  transition: 0.35s ease;
+}
+
+.cards:hover {
+  transform: translateY(-6px);
+}
+
+.cards img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 14px;
+}
+
+.search {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px 15px;
+  border-radius: 12px;
+  outline: none;
+}
+
+.sortbox {
+  margin-top: 15px;
+}
+
+.sortbox select {
+  padding: 11px 14px;
+  border-radius: 12px;
+  outline: none;
+  cursor: pointer;
+}
+
+.backbtn,
+.btns {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btns {
+  margin-top: 30px;
+  margin-right: 15px;
+}
+
+@media (max-width: 768px) {
+  .products {
+    padding: 25px 15px;
+  }
+
+  .btns {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
