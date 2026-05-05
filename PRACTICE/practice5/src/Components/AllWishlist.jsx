@@ -163,6 +163,8 @@
 // export default AllWishlist;
 
 // -------css----------------------
+
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AllWishlist.css";
