@@ -4,8 +4,7 @@ import { useSelector } from "react-redux";
 
 const Login = () => {
   const userdata = useSelector((state) => state.signup.user);
-  console.log(">>>>>>usserdata",userdata)
-
+  console.log(">>>>>>usserdata", userdata);
 
   const [form, setForm] = useState({
     email: "",
