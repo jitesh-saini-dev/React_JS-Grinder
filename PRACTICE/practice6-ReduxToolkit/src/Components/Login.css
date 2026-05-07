@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+.searchbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.search {
+  padding: 10px;
+  border-radius: 20px;
+  width: 20%;
+  border: none;
+}
+.btns {
+  padding: 5px 15px;
+  border-radius: 15px;
+  background-color: lightseagreen;
+  margin: 5px;
+  cursor: pointer;
+}
+.btns:active {
+  scale: 0.95;
+}

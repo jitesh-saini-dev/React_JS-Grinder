@@ -1,31 +1,25 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { prod } from "../Slice/apislice";
+import { fetchUser } from "../Slice/apislice";
 
 const Home = () => {
   const dispatch = useDispatch();
 
-  const fetchData = async () => {
-    const res = await fetch("https://fakestoreapi.com/products");
-
-    const result = await res.json();
-
-    dispatch(prod(result));
-  };
-
-  const sely = useSelector((state) => state.products.data);
-
-  console.log(sely);
+  const { data, loading } = useSelector((state) => state.products);
 
   useEffect(() => {
-    fetchData();
+    dispatch(fetchUser());
   }, []);
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div>
       <h1>Products</h1>
 
-      {sely.map((item) => (
+      {data.map((item) => (
         <div key={item.id}>
           <img src={item.image} alt={item.title} width="100" />
 
