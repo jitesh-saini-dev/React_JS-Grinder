@@ -1,19 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUser } from "../Slice/apislice";
+import { fetchUser } from "../Slice/productslice";
 
 const Home = () => {
   const dispatch = useDispatch();
 
-  const { data, loading } = useSelector((state) => state.products);
+  const data = useSelector((state) => state.products.data);
 
   useEffect(() => {
     dispatch(fetchUser());
   }, []);
-
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
 
   return (
     <div>
@@ -26,8 +22,6 @@ const Home = () => {
           <h2>{item.title}</h2>
 
           <h3>{item.price}</h3>
-
-          <p>{item.description}</p>
 
           <hr />
         </div>

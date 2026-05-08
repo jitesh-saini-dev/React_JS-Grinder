@@ -1,15 +1,11 @@
-import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Component/Header";
 import Signup from "./Component/Signup";
 import Login from "./Component/Login";
 import Home from "./Component/Home";
-import Description from "./Component/Description";
-
-
+import About from "./Component/About";
 
 const App = () => {
-  const [cart, setCart] = useState([]);
   return (
     <BrowserRouter>
       <Header />
@@ -17,28 +13,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/des" element={<Description />} />
-
-
-
-
-        {/* <Route
-          path="/home"
-          element={
-            <Protectedroute>
-              <Home cart={cart} setCart={setCart} />
-            </Protectedroute>
-          }
-        /> */}
-
-        {/* <Route
-          path="/cart"
-          element={
-            <Protectedroute>
-              <Cart cart={cart} setCart={setCart} />{" "}
-            </Protectedroute>
-          }
-        /> */}
+        <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
   );

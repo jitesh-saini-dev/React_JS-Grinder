@@ -1,26 +1,42 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Cart.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setcart, setLoading } from "../slice/cartslice";
+import { placeOrder } from "../slice/orderslice";
+import { addWishlist } from "../slice/wishlistslice";
 
 const Cart = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const [cart, setCart] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { cart, loading } = useSelector((state) => state.cartitems);
+  console.log(cart)
+
+  
+
+  // const [cart, setCart] = useState([]);
+  // const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
 
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await fetch(`https://dummyjson.com/carts/${id}`);
+        dispatch(setLoading(true));
+
+        const res = await fetch(`https://dummyjson.com/carts/user/${id}`);
         const data = await res.json();
-        setCart(data);
+
+        dispatch(setcart(data.carts));
+
+        // setCart(data.carts);
       } catch (err) {
         console.error("Error fetching cart:", err);
       } finally {
-        setLoading(false);
+        // setLoading(false);
+        dispatch(setLoading(false));
       }
     };
 
@@ -28,9 +44,12 @@ const Cart = () => {
   }, [id]);
 
   if (loading) return <h2>Loading...</h2>;
-  if (!cart) return <h2>No Data Found</h2>;
+  if (cart.length === 0) {
+    return <h2>No Data Found</h2>;
+  }
+  const allProducts = cart.flatMap((item) => item.products);
 
-  const filteredData = cart.products.filter((p) =>
+  const filteredData = allProducts.filter((p) =>
     p.title.toLowerCase().includes(search.toLowerCase()),
   );
 
@@ -53,23 +72,6 @@ const Cart = () => {
       <button onClick={() => navigate(-1)} className="backbtn">
         Back
       </button>
-
-      <h3>Cart ID: {cart.id}</h3>
-      <p>
-        <strong>User ID:</strong> {cart.userId}
-      </p>
-      <p>
-        <strong>Total Products:</strong> {cart.totalProducts}
-      </p>
-      <p>
-        <strong>Total Quantity:</strong> {cart.totalQuantity}
-      </p>
-      <p>
-        <strong>Total:</strong> ${cart.total}
-      </p>
-      <p>
-        <strong>Discounted Total:</strong> ${cart.discountedTotal}
-      </p>
 
       <h3>Products</h3>
 
@@ -114,27 +116,29 @@ const Cart = () => {
       <button
         className="btns"
         onClick={() => {
-          const user = JSON.parse(localStorage.getItem("user"));
+          dispatch(placeOrder(sortedData));
 
-          const existingOrders =
-            JSON.parse(localStorage.getItem("allOrders")) || [];
+          // const user = JSON.parse(localStorage.getItem("user"));
 
-          const neworder = {
-            id: cart.id,
-            name: user.name,
-            products: sortedData,
-          };
+          // const existingOrders =
+          //   JSON.parse(localStorage.getItem("allOrders")) || [];
 
-          const updatedOrders = [...existingOrders, neworder];
-          // console.log(updatedOrders);
+          // const neworder = {
+          //   id: Date.now(),
+          //   name: user.name,
+          //   products: sortedData,
+          // };
 
-          const ans = localStorage.setItem(
-            "allOrders",
-            JSON.stringify(updatedOrders),
-          );
-          console.log(ans);
+          // const updatedOrders = [...existingOrders, neworder];
+          // // console.log(updatedOrders);
 
-          alert(`Order Placed! ID: ${cart.id}`);
+          // const ans = localStorage.setItem(
+          //   "allOrders",
+          //   JSON.stringify(updatedOrders),
+          // );
+          // console.log(ans);
+
+          alert("Order Placed!");
         }}
       >
         Place Order
@@ -142,25 +146,27 @@ const Cart = () => {
       <button
         className="btns"
         onClick={() => {
-          const user = JSON.parse(localStorage.getItem("user"));
+          dispatch(addWishlist(sortedData));
 
-          const existingWishlist =
-            JSON.parse(localStorage.getItem("allwish")) || [];
+          // const user = JSON.parse(localStorage.getItem("user"));
 
-          const newwish = {
-            id: cart.id,
-            name: user.name,
-            products: sortedData,
-          };
+          // const existingWishlist =
+          //   JSON.parse(localStorage.getItem("allwish")) || [];
 
-          const updatedWishlist = [...existingWishlist, newwish];
-          console.log(updatedWishlist);
+          // const newwish = {
+          //   id: cart.id,
+          //   name: user.name,
+          //   products: sortedData,
+          // };
 
-          const answish = localStorage.setItem(
-            "allwish",
-            JSON.stringify(updatedWishlist),
-          );
-          console.log(">>>>>>wishlist", answish);
+          // const updatedWishlist = [...existingWishlist, newwish];
+          // console.log(updatedWishlist);
+
+          // const answish = localStorage.setItem(
+          //   "allwish",
+          //   JSON.stringify(updatedWishlist),
+          // );
+          // console.log(">>>>>>wishlist", answish);
           alert("added to wishlist!");
         }}
       >

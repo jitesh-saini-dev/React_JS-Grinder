@@ -3,15 +3,21 @@ import "./Home.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setuser, setloading } from "../slice/homeslice";
 
 const Home = () => {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [isTable, setIsTable] = useState(false);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { users, loading } = useSelector((state) => state.homeusers);
+  console.log(users, loading);
 
   const dataimg = [
     { id: 1, image_url: "https://randomuser.me/api/portraits/men/1.jpg" },
@@ -53,18 +59,21 @@ const Home = () => {
   };
 
   const fetchdata = async () => {
-    setLoading(true);
+    dispatch(setloading(true));
+
     const res = await fetch("https://dummyjson.com/users");
     const datas = await res.json();
-    setData(datas.users);
-    setLoading(false);
+
+    dispatch(setuser(datas.users));
+
+    dispatch(setloading(false));
   };
 
   useEffect(() => {
     fetchdata();
   }, []);
 
-  const filteredData = data.filter((x) =>
+  const filteredData = users.filter((x) =>
     x.username.toLowerCase().includes(search.toLowerCase()),
   );
 

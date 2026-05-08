@@ -351,23 +351,186 @@
 
 //-------with proper css-----------------------------
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+// import { LazyLoadImage } from "react-lazy-load-image-component";
+// import "react-lazy-load-image-component/src/effects/blur.css";
+// import { useNavigate } from "react-router-dom";
+// import "./AllOrders.css";
+
+// const AllOrders = () => {
+//   const [orders, setOrders] = useState([]);
+//   const [search, setSearch] = useState("");
+//   const [sort, setSort] = useState("");
+
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const data = JSON.parse(localStorage.getItem("allOrders")) || [];
+//     setOrders(data);
+//   }, []);
+
+//   if (orders.length === 0) {
+//     return <h2>No Orders Found</h2>;
+//   }
+
+//   let users = [...new Set(orders.map((o) => o.name))];
+
+//   users = users.filter((u) => u.toLowerCase().includes(search.toLowerCase()));
+
+//   if (sort === "atoz") {
+//     users.sort((a, b) => a.localeCompare(b));
+//   } else if (sort === "ztoa") {
+//     users.sort((a, b) => b.localeCompare(a));
+//   }
+
+//   const deleteProduct = (orderId, productId) => {
+//     const updated = orders
+//       .map((o) => {
+//         if (o.id === orderId) {
+//           return {
+//             ...o,
+//             products: o.products.filter((p) => p.id !== productId),
+//           };
+//         }
+//         return o;
+//       })
+//       .filter((o) => o.products.length > 0);
+
+//     setOrders(updated);
+//     localStorage.setItem("allOrders", JSON.stringify(updated));
+//   };
+
+//   return (
+//     <div className="orderspage">
+//       <button onClick={() => navigate(-1)} className="backbtn">
+//         Back
+//       </button>
+
+//       <h2>All Orders</h2>
+
+//       <div className="topcontrols">
+//         <input
+//           type="text"
+//           placeholder="Search user..."
+//           value={search}
+//           onChange={(e) => setSearch(e.target.value)}
+//           className="searchinput"
+//         />
+
+//         <select
+//           value={sort}
+//           onChange={(e) => setSort(e.target.value)}
+//           className="sortselect"
+//         >
+//           <option value="">Sort</option>
+//           <option value="atoz">A - Z</option>
+//           <option value="ztoa">Z - A</option>
+//         </select>
+//       </div>
+
+//       {users.length === 0 ? (
+//         <div>No data found</div>
+//       ) : (
+//         users.map((user, i) => {
+//           const userTotal = orders
+//             .filter((o) => o.name === user)
+//             .reduce(
+//               (sum, o) => sum + o.products.reduce((s, p) => s + p.total, 0),
+//               0,
+//             );
+
+//           return (
+//             <div key={i} className="userbox">
+//               <div className="usercard">
+//                 <h1>👤 {user}</h1>
+
+//                 <p>
+//                   <strong>Total Spend:</strong> ${userTotal.toFixed(2)}
+//                 </p>
+
+//                 {orders
+//                   .filter((o) => o.name === user)
+//                   .map((order) => {
+//                     const orderTotal = order.products.reduce(
+//                       (sum, p) => sum + p.total,
+//                       0,
+//                     );
+
+//                     return (
+//                       <div key={order.id} className="orderbox">
+//                         <h3>📦 Order ID: {order.id}</h3>
+
+//                         <p>
+//                           <strong>Order Total:</strong> ${orderTotal.toFixed(2)}
+//                         </p>
+
+//                         <div className="prodbox">
+//                           {order.products.map((p) => (
+//                             <div key={p.id} className="prod">
+//                               <LazyLoadImage
+//                                 src={p.thumbnail}
+//                                 alt={p.title}
+//                                 effect="blur"
+//                                 className="prodimg"
+//                                 wrapperProps={{
+//                                   style: { transitionDelay: "0.5s" },
+//                                 }}
+//                               />
+
+//                               <p>
+//                                 <strong>{p.title}</strong>
+//                               </p>
+
+//                               <p>Price: ${p.price}</p>
+
+//                               <p>Qty: {p.quantity}</p>
+
+//                               <p>Total: ${p.total.toFixed(2)}</p>
+
+//                               <button
+//                                 className="deletebtn"
+//                                 onClick={() => deleteProduct(order.id, p.id)}
+//                               >
+//                                 🗑️ Delete
+//                               </button>
+//                             </div>
+//                           ))}
+//                         </div>
+//                       </div>
+//                     );
+//                   })}
+//               </div>
+//             </div>
+//           );
+//         })
+//       )}
+//     </div>
+//   );
+// };
+
+// export default AllOrders;
+
+//with Redux toolkit ----------------
+
+import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { orderslice, removeProduct  } from "../slice/orderslice";
+
 import "./AllOrders.css";
 
 const AllOrders = () => {
-  const [orders, setOrders] = useState([]);
-  const [search, setSearch] = useState("");
-  const [sort, setSort] = useState("");
-
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("allOrders")) || [];
-    setOrders(data);
-  }, []);
+  const dispatch = useDispatch();
+
+  const { orders } = useSelector((state) => state.orders);
+
+  const [search, setSearch] = useState("");
+
+  const [sort, setSort] = useState("");
 
   if (orders.length === 0) {
     return <h2>No Orders Found</h2>;
@@ -383,21 +546,9 @@ const AllOrders = () => {
     users.sort((a, b) => b.localeCompare(a));
   }
 
+  // function fix karo
   const deleteProduct = (orderId, productId) => {
-    const updated = orders
-      .map((o) => {
-        if (o.id === orderId) {
-          return {
-            ...o,
-            products: o.products.filter((p) => p.id !== productId),
-          };
-        }
-        return o;
-      })
-      .filter((o) => o.products.length > 0);
-
-    setOrders(updated);
-    localStorage.setItem("allOrders", JSON.stringify(updated));
+    dispatch(removeProduct ({ orderId, productId })); // ✅ dispatch karo
   };
 
   return (
@@ -423,7 +574,9 @@ const AllOrders = () => {
           className="sortselect"
         >
           <option value="">Sort</option>
+
           <option value="atoz">A - Z</option>
+
           <option value="ztoa">Z - A</option>
         </select>
       </div>
@@ -472,9 +625,6 @@ const AllOrders = () => {
                                 alt={p.title}
                                 effect="blur"
                                 className="prodimg"
-                                wrapperProps={{
-                                  style: { transitionDelay: "0.5s" },
-                                }}
                               />
 
                               <p>

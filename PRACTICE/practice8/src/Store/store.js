@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../Slice/signupSlice";
-import apiReducer from "../Slice/apislice";
+import prodReducer from "../Slice/productslice"
 
 export const store = configureStore({
   reducer: {
     //slice
     signup: authReducer,
-    products: apiReducer,
+    products:prodReducer
   },
 });
