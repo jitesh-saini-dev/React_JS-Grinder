@@ -18,6 +18,12 @@ const Header = () => {
         <Link to="/about" className="link">
           About
         </Link>
+        <Link to="/userdetail" className="link">
+          UserDetail
+        </Link>
+        <Link to="/prodform" className="link">
+          Product Form
+        </Link>
       </div>
     </>
   );

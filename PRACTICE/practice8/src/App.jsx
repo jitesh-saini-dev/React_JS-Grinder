@@ -4,6 +4,8 @@ import Signup from "./Component/Signup";
 import Login from "./Component/Login";
 import Home from "./Component/Home";
 import About from "./Component/About";
+import Userdetail from "./Component/Userdetail";
+import ProductForm from "./Component/ProductForm";
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/user/:id" element={<Userdetail />} />
+        <Route path="/prodform" element={<ProductForm />} />
       </Routes>
     </BrowserRouter>
   );

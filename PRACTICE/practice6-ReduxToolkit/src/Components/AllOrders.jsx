@@ -517,7 +517,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { orderslice, removeProduct  } from "../slice/orderslice";
+import { orderslice, removeProduct } from "../slice/orderslice";
 
 import "./AllOrders.css";
 
@@ -548,7 +548,7 @@ const AllOrders = () => {
 
   // function fix karo
   const deleteProduct = (orderId, productId) => {
-    dispatch(removeProduct ({ orderId, productId })); // ✅ dispatch karo
+    dispatch(removeProduct({ orderId, productId })); // ✅ dispatch karo
   };
 
   return (

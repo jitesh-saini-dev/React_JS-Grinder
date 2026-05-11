@@ -33,7 +33,7 @@ const Home = () => {
       sku: "",
       weight: 0,
       dimensions: { width: 0, height: 0, depth: 0 },
-    }; 
+    };
 
     setProducts([...products, newProduct]);
 

@@ -191,8 +191,7 @@ const Home = () => {
           sorteddata.map((x) => (
             <div key={x.id} className="card">
               <LazyLoadImage
-
-              className="cardimg"
+                className="cardimg"
                 src={getImage(x.id)}
                 alt={x.username}
                 effect="blur"
