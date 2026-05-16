@@ -29,6 +29,7 @@ const Header = () => {
         <Link to="/allwishlist" className="link">
           Allwishlist
         </Link>
+    
 
         <button
           onClick={handlelog}

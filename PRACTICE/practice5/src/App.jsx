@@ -71,6 +71,8 @@ const App = () => {
           <Route path="/allwishlist" element={<AllWishlist />} />
 
 
+
+
         </Routes>
       </BrowserRouter>
     </>
