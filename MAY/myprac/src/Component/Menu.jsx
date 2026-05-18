@@ -29,8 +29,6 @@
 // export default Menu;
 //-----------------------------------------------------------------
 
-
-
 // import React, { useEffect, useState } from "react";
 // import { useSelector, useDispatch } from "react-redux";
 // import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -322,6 +320,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import TablePagination from "@mui/material/TablePagination";
 import { fetchdata } from "../Slice/menuslice";
+import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
   const [search, setSearch] = useState("");
@@ -335,6 +334,8 @@ const Menu = () => {
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(6);
+
+  const navigate = useNavigate();
 
   const handleChangePage = (event, newPage) => setPage(newPage);
   const handleChangeRowsPerPage = (event) => {
@@ -369,7 +370,8 @@ const Menu = () => {
   const sorted = [...catetags];
   if (sort === "atoz") sorted.sort((a, b) => a.name.localeCompare(b.name));
   else if (sort === "rating") sorted.sort((a, b) => b.rating - a.rating);
-  else if (sort === "time") sorted.sort((a, b) => a.cookTimeMinutes - b.cookTimeMinutes);
+  else if (sort === "time")
+    sorted.sort((a, b) => a.cookTimeMinutes - b.cookTimeMinutes);
 
   const getPrice = (cal) => `$ ${((cal / 100) * 4.5 + 9).toFixed(2)} USD`;
 
@@ -384,19 +386,20 @@ const Menu = () => {
       style={{ fontFamily: "'Poppins', sans-serif" }}
     >
       <div className="max-w-[1300px] mx-auto px-6 pt-16 pb-16">
-
         {/* ── Tonight's Cravings ── */}
         <h1
           className="text-center font-bold mb-14 transition-all duration-[1200ms] ease-out"
           style={{
             fontSize: "clamp(3rem, 7vw, 5.5rem)",
             letterSpacing: "-0.01em",
-            opacity:   titleVisible ? 1 : 0,
+            opacity: titleVisible ? 1 : 0,
             transform: titleVisible ? "translateY(0)" : "translateY(56px)",
           }}
         >
           Tonight's{" "}
-          <span style={{ color: "#c27b7b", fontStyle: "italic" }}>Cravings</span>
+          <span style={{ color: "#c27b7b", fontStyle: "italic" }}>
+            Cravings
+          </span>
         </h1>
 
         {/* ── Full-width Search ── */}
@@ -405,16 +408,25 @@ const Menu = () => {
                      bg-[#202020] border border-[#2e2e2e]
                      focus-within:border-[#c27b7b] transition-colors duration-300"
           style={{
-            opacity:    titleVisible ? 1 : 0,
-            transform:  titleVisible ? "translateY(0)" : "translateY(28px)",
+            opacity: titleVisible ? 1 : 0,
+            transform: titleVisible ? "translateY(0)" : "translateY(28px)",
             transition: "opacity 1s ease 0.35s, transform 1s ease 0.35s",
           }}
         >
           {/* Search icon SVG */}
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-               stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-               className="shrink-0">
-            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#666"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="shrink-0"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
           </svg>
           <input
             type="text"
@@ -438,8 +450,8 @@ const Menu = () => {
         <div
           className="flex flex-wrap items-center justify-between gap-4 mb-10"
           style={{
-            opacity:    titleVisible ? 1 : 0,
-            transform:  titleVisible ? "translateY(0)" : "translateY(20px)",
+            opacity: titleVisible ? 1 : 0,
+            transform: titleVisible ? "translateY(0)" : "translateY(20px)",
             transition: "opacity 1s ease 0.6s, transform 1s ease 0.6s",
           }}
         >
@@ -450,9 +462,10 @@ const Menu = () => {
               onClick={() => setSelectCategory("")}
               className={`px-5 py-2 rounded-full text-sm font-medium border
                           transition-all duration-200 cursor-pointer
-                          ${selectCategory === ""
-                            ? "bg-white text-black border-white"
-                            : "bg-transparent text-gray-400 border-[#3a3a3a] hover:border-gray-500 hover:text-white"
+                          ${
+                            selectCategory === ""
+                              ? "bg-white text-black border-white"
+                              : "bg-transparent text-gray-400 border-[#3a3a3a] hover:border-gray-500 hover:text-white"
                           }`}
             >
               All Items
@@ -465,9 +478,10 @@ const Menu = () => {
                 onClick={() => setSelectCategory(x)}
                 className={`px-5 py-2 rounded-full text-sm font-medium border
                             transition-all duration-200 cursor-pointer
-                            ${selectCategory === x
-                              ? "bg-white text-black border-white"
-                              : "bg-transparent text-gray-400 border-[#3a3a3a] hover:border-gray-500 hover:text-white"
+                            ${
+                              selectCategory === x
+                                ? "bg-white text-black border-white"
+                                : "bg-transparent text-gray-400 border-[#3a3a3a] hover:border-gray-500 hover:text-white"
                             }`}
               >
                 {x}
@@ -496,10 +510,10 @@ const Menu = () => {
           <div className="flex justify-center items-center h-[50vh]">
             <div className="w-12 h-12 border-4 border-[#3a2020] border-t-[#c27b7b] rounded-full animate-spin" />
           </div>
-
         ) : sorted.length === 0 ? (
-          <p className="text-center text-gray-600 text-lg mt-20">No dishes found 😕</p>
-
+          <p className="text-center text-gray-600 text-lg mt-20">
+            No dishes found 😕
+          </p>
         ) : (
           <>
             {/* ── Grid ── */}
@@ -537,23 +551,30 @@ const Menu = () => {
                   </div>
 
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black/78 opacity-0 group-hover:opacity-100
+                  <div
+                    className="absolute inset-0 bg-black/78 opacity-0 group-hover:opacity-100
                                   transition-opacity duration-300 flex flex-col justify-center
-                                  items-center gap-2 px-6 text-center">
+                                  items-center gap-2 px-6 text-center"
+                  >
                     <p className="text-[#c27b7b] text-xs tracking-widest uppercase font-medium">
                       {item.cuisine}
                     </p>
                     <p className="text-[#f4a4a4] text-sm tracking-wide">
                       ⭐ {item.rating} Rating
                     </p>
-                    <p className="text-gray-300 text-sm">⏱ {item.cookTimeMinutes} min cook time</p>
+                    <p className="text-gray-300 text-sm">
+                      ⏱ {item.cookTimeMinutes} min cook time
+                    </p>
                     <p className="text-gray-500 text-xs mt-1 leading-relaxed">
                       {item.instructions?.join(" ").slice(0, 90)}...
                     </p>
-                    <button className="mt-4 px-7 py-2.5 border border-[#c27b7b] text-[#c27b7b]
+                    <button
+                      className="mt-4 px-7 py-2.5 border border-[#c27b7b] text-[#c27b7b]
                                        text-xs tracking-widest uppercase rounded-full
-                                       hover:bg-[#c27b7b] hover:text-black transition-all duration-200">
-                      Order Now
+                                       hover:bg-[#c27b7b] hover:text-black transition-all duration-200"
+                      onClick={() => navigate(`/menu/${item.id}`)}
+                    >
+                      View Details
                     </button>
                   </div>
                 </div>
@@ -574,11 +595,12 @@ const Menu = () => {
                   sx={{
                     color: "#fff",
                     "& .MuiTablePagination-toolbar": { color: "#888" },
-                    "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows": {
-                      color: "#666",
-                      fontSize: "13px",
-                    },
-                    "& .MuiSelect-icon":    { color: "#888" },
+                    "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows":
+                      {
+                        color: "#666",
+                        fontSize: "13px",
+                      },
+                    "& .MuiSelect-icon": { color: "#888" },
                     "& .MuiInputBase-root": { color: "#aaa" },
                     "& .MuiTablePagination-actions button": {
                       color: "#888",

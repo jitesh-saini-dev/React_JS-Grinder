@@ -7,6 +7,8 @@ import Wishlist from "./Component/Wishlist.jsx";
 import Reservation from "./Component/Reservation.jsx";
 import OurStory from "./Component/OurStory.jsx";
 import Contact from "./Component/Contact.jsx";
+import Menudetails from "./Component/Menudetails.jsx";
+import Footer from "./Component/Footer.jsx";
 
 const App = () => {
   return (
@@ -16,13 +18,15 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
+          <Route path="/menu/:id" element={<Menudetails />} />
+
           <Route path="/reservation" element={<Reservation />} />
           <Route path="/ourstory" element={<OurStory />} />
           <Route path="/contact" element={<Contact />} />
-
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
