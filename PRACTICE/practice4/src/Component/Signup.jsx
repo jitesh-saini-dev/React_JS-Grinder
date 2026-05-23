@@ -14,7 +14,7 @@ const Signup = () => {
   });
 
   const [error, setError] = useState({});
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   function handlechange(e) {
     e.preventDefault();
@@ -36,8 +36,7 @@ const Signup = () => {
       localStorage.setItem("user", JSON.stringify(form));
 
       alert("Form Submitted");
-      navigate('/home')
-
+      navigate("/home");
 
       setForm({
         name: "",
