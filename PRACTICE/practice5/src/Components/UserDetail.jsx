@@ -5,6 +5,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 const UserDetail = () => {
+  
   const { id } = useParams();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
