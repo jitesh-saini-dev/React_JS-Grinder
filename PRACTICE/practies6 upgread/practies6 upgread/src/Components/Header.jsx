@@ -11,7 +11,6 @@ const Header = () => {
   return (
     <div className="w-full bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50">
       <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
-        
         <h1 className="text-2xl font-bold text-blue-600 cursor-pointer">
           MyApp
         </h1>
@@ -45,7 +44,6 @@ const Header = () => {
             Orders
           </Link>
 
-            
           <Link
             to="/AllWishlist"
             className="text-gray-700 dark:text-gray-200 hover:text-blue-500 transition font-medium"
