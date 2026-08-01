@@ -12,7 +12,6 @@ const recipeSlice = createSlice({
   initialState,
 
   reducers: {
-
     // RECIPE
     setRecipe: (state, action) => {
       state.recipe = action.payload;
@@ -30,10 +29,6 @@ const recipeSlice = createSlice({
   },
 });
 
-export const {
-  setRecipe,
-  setPost,
-  setLoading,
-} = recipeSlice.actions;
+export const { setRecipe, setPost, setLoading } = recipeSlice.actions;
 
 export default recipeSlice.reducer;
