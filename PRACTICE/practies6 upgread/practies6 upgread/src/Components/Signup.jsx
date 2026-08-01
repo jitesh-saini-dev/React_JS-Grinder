@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import { signupUser } from "../Slice/authSlice";
 
 const Signup = () => {
-
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -27,34 +26,26 @@ const Signup = () => {
 
   // SUBMIT
   const handleSubmit = (e) => {
-
     e.preventDefault();
 
     const err = {};
 
     if (!form.name) {
-
       err.name = "Name Required";
-
     }
 
     if (!form.email) {
-
       err.email = "Email Required";
-
     }
 
     if (!form.password) {
-
       err.password = "Password Required";
-
     }
 
     setError(err);
 
     // SUCCESS
     if (Object.keys(err).length === 0) {
-
       dispatch(signupUser(form));
 
       alert("Signup Success");
@@ -65,17 +56,9 @@ const Signup = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center p-6 bg-gradient-to-br from-blue-50 to-purple-100">
-
       <div className="bg-white w-full max-w-lg p-6 rounded-2xl shadow-xl">
-
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-4"
-        >
-
-          <h1 className="text-3xl font-bold text-center">
-            Signup
-          </h1>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <h1 className="text-3xl font-bold text-center">Signup</h1>
 
           {/* NAME */}
           <input
@@ -91,12 +74,7 @@ const Signup = () => {
             className="p-3 border rounded-xl"
           />
 
-          {error.name && (
-
-            <p className="text-red-500 text-sm">
-              {error.name}
-            </p>
-          )}
+          {error.name && <p className="text-red-500 text-sm">{error.name}</p>}
 
           {/* EMAIL */}
           <input
@@ -112,12 +90,7 @@ const Signup = () => {
             className="p-3 border rounded-xl"
           />
 
-          {error.email && (
-
-            <p className="text-red-500 text-sm">
-              {error.email}
-            </p>
-          )}
+          {error.email && <p className="text-red-500 text-sm">{error.email}</p>}
 
           {/* PASSWORD */}
           <input
@@ -134,10 +107,7 @@ const Signup = () => {
           />
 
           {error.password && (
-
-            <p className="text-red-500 text-sm">
-              {error.password}
-            </p>
+            <p className="text-red-500 text-sm">{error.password}</p>
           )}
 
           {/* AGE */}
@@ -214,11 +184,8 @@ const Signup = () => {
           <button className="bg-purple-500 text-white py-3 rounded-xl">
             Signup
           </button>
-
         </form>
-
       </div>
-
     </div>
   );
 };
