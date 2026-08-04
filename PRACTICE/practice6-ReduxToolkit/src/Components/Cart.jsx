@@ -14,7 +14,7 @@ const Cart = () => {
   const { cart, loading } = useSelector((state) => state.cartitems);
   console.log(cart)
 
-  
+
 
   // const [cart, setCart] = useState([]);
   // const [loading, setLoading] = useState(true);

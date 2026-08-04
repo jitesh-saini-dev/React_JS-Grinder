@@ -15,7 +15,7 @@ const Productform = ({ setPass }) => {
     e.preventDefault();
 
     const errorobj = {};
-     if (form.id === "") {
+    if (form.id === "") {
       errorobj.id = "id is required";
     }
     if (form.title === "") {
@@ -52,7 +52,7 @@ const Productform = ({ setPass }) => {
   return (
     <div>
       <form onSubmit={handlesubmit}>
-         <input
+        <input
           type="number"
           placeholder="Enter id"
           value={form.id}
