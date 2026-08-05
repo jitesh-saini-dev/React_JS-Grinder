@@ -9,7 +9,7 @@ const Login = () => {
 
   const [userData, setUserData] = useState(null);
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   function handlechange(e) {
     e.preventDefault();
@@ -17,33 +17,33 @@ const Login = () => {
     console.log(result);
 
 
-      if (!result) {
-        alert("You Have to SignUp First!");
-        navigate("/signup")
-        return;
-      }
-
-      if (form.email !== result.email && form.password !== result.password) {
-        alert("Email & Password not matched!");
-        setUserData(null);
-      } else if (form.email !== result.email) {
-        alert("Email not matched!");
-        setUserData(null);
-      } else if (form.password !== result.password) {
-        alert("Password not matched!");
-        setUserData(null);
-      } else {
-        alert("Login Successfully 🔥");
-        setUserData(result);
-        localStorage.setItem("token", true);
-      }
-
-      setForm({
-        email: "",
-        password: "",
-      });
+    if (!result) {
+      alert("You Have to SignUp First!");
+      navigate("/signup")
+      return;
     }
-  
+
+    if (form.email !== result.email && form.password !== result.password) {
+      alert("Email & Password not matched!");
+      setUserData(null);
+    } else if (form.email !== result.email) {
+      alert("Email not matched!");
+      setUserData(null);
+    } else if (form.password !== result.password) {
+      alert("Password not matched!");
+      setUserData(null);
+    } else {
+      alert("Login Successfully 🔥");
+      setUserData(result);
+      localStorage.setItem("token", true);
+    }
+
+    setForm({
+      email: "",
+      password: "",
+    });
+  }
+
 
   return (
     <div>
@@ -82,8 +82,8 @@ const Login = () => {
             <p>
               <strong>Phone:</strong> {userData.phone}
             </p>
-         
-          
+
+
           </div>
 
           <div className="profile-address">

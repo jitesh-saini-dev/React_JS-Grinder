@@ -15,7 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/child" element={<Child />} />
 
-         <Route
+        <Route
           path="/home"
           element={
             <Protectedroute>
@@ -27,7 +27,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
 
 
-       
+
       </Routes>
     </BrowserRouter>
   );
