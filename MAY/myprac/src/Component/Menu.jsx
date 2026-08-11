@@ -462,11 +462,10 @@ const Menu = () => {
               onClick={() => setSelectCategory("")}
               className={`px-5 py-2 rounded-full text-sm font-medium border
                           transition-all duration-200 cursor-pointer
-                          ${
-                            selectCategory === ""
-                              ? "bg-white text-black border-white"
-                              : "bg-transparent text-gray-400 border-[#3a3a3a] hover:border-gray-500 hover:text-white"
-                          }`}
+                          ${selectCategory === ""
+                  ? "bg-white text-black border-white"
+                  : "bg-transparent text-gray-400 border-[#3a3a3a] hover:border-gray-500 hover:text-white"
+                }`}
             >
               All Items
             </button>
@@ -478,11 +477,10 @@ const Menu = () => {
                 onClick={() => setSelectCategory(x)}
                 className={`px-5 py-2 rounded-full text-sm font-medium border
                             transition-all duration-200 cursor-pointer
-                            ${
-                              selectCategory === x
-                                ? "bg-white text-black border-white"
-                                : "bg-transparent text-gray-400 border-[#3a3a3a] hover:border-gray-500 hover:text-white"
-                            }`}
+                            ${selectCategory === x
+                    ? "bg-white text-black border-white"
+                    : "bg-transparent text-gray-400 border-[#3a3a3a] hover:border-gray-500 hover:text-white"
+                  }`}
               >
                 {x}
               </button>
@@ -596,10 +594,10 @@ const Menu = () => {
                     color: "#fff",
                     "& .MuiTablePagination-toolbar": { color: "#888" },
                     "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows":
-                      {
-                        color: "#666",
-                        fontSize: "13px",
-                      },
+                    {
+                      color: "#666",
+                      fontSize: "13px",
+                    },
                     "& .MuiSelect-icon": { color: "#888" },
                     "& .MuiInputBase-root": { color: "#aaa" },
                     "& .MuiTablePagination-actions button": {

@@ -15,7 +15,7 @@ const Contact = () => {
 
   return (
     <div style={{ backgroundColor: "#111", minHeight: "100vh", color: "#fff", fontFamily: "'Poppins', sans-serif", paddingBottom: "80px" }}>
-      
+
       {/* ── CSS Animation for Floating Text ── */}
       <style>
         {`
@@ -32,7 +32,7 @@ const Contact = () => {
       </style>
 
       {/* ── HEADER SECTION (Now Animated) ── */}
-      <div 
+      <div
         className={`float-up-header ${headerVisible ? 'visible' : ''}`}
         style={{ textAlign: "center", paddingTop: "80px", paddingBottom: "60px", paddingHorizontal: "20px" }}
       >
@@ -46,12 +46,12 @@ const Contact = () => {
 
       {/* ── MAIN CONTENT CONTAINER ── */}
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", flexDirection: "column", gap: "24px" }}>
-        
+
         {/* ── TOP SECTION: 3 Contact Cards ── */}
-        <div style={{ 
-          display: "grid", 
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", 
-          gap: "24px" 
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "24px"
         }}>
           {contactMethods.map((method, index) => (
             <div key={index} style={{
@@ -86,12 +86,12 @@ const Contact = () => {
 
         {/* ── BOTTOM SECTION: Map, Hours, Details ── */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "24px", alignItems: "stretch" }}>
-          
+
           {/* LEFT: Visit Us Card */}
-          <div style={{ 
-            flex: "1 1 500px", 
-            backgroundColor: "#2a2a2a", 
-            borderRadius: "16px", 
+          <div style={{
+            flex: "1 1 500px",
+            backgroundColor: "#2a2a2a",
+            borderRadius: "16px",
             padding: "40px",
             display: "flex",
             flexDirection: "column",
@@ -101,16 +101,16 @@ const Contact = () => {
           }}>
             {/* Pink Icon Box */}
             <div style={{
-                backgroundColor: "#f4a2a2",
-                width: "60px",
-                height: "60px",
-                borderRadius: "16px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginBottom: "20px",
-                color: "#111"
-              }}>
+              backgroundColor: "#f4a2a2",
+              width: "60px",
+              height: "60px",
+              borderRadius: "16px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: "20px",
+              color: "#111"
+            }}>
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
@@ -137,8 +137,8 @@ const Contact = () => {
               gap: "8px",
               transition: "opacity 0.2s"
             }}
-            onMouseEnter={(e) => e.target.style.opacity = "0.9"}
-            onMouseLeave={(e) => e.target.style.opacity = "1"}
+              onMouseEnter={(e) => e.target.style.opacity = "0.9"}
+              onMouseLeave={(e) => e.target.style.opacity = "1"}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -151,11 +151,11 @@ const Contact = () => {
 
           {/* RIGHT: Hours & Getting Here */}
           <div style={{ flex: "1 1 400px", display: "flex", flexDirection: "column", gap: "24px" }}>
-            
+
             {/* Opening Hours Card */}
             <div style={{ backgroundColor: "#2a2a2a", borderRadius: "16px", padding: "30px" }}>
               <h3 style={{ fontSize: "1.3rem", fontWeight: 700, margin: "0 0 24px" }}>Opening Hours</h3>
-              
+
               {/* Dine In Row */}
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -169,7 +169,7 @@ const Contact = () => {
                   <div style={{ color: "#fff", fontSize: "14px", fontWeight: "600" }}>12 PM - 11 AM</div>
                 </div>
               </div>
-              
+
               <div style={{ height: "1px", backgroundColor: "#3a3a3a", marginBottom: "20px" }}></div>
 
               {/* Delivery Row */}

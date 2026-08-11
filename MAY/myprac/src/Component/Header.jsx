@@ -59,10 +59,9 @@ const Header = () => {
                 key={to}
                 to={to}
                 className={`text-sm tracking-wide no-underline transition-colors duration-200
-                  ${
-                    active
-                      ? "text-[#f4a4a4] font-medium"
-                      : "text-gray-400 hover:text-white"
+                  ${active
+                    ? "text-[#f4a4a4] font-medium"
+                    : "text-gray-400 hover:text-white"
                   }`}
               >
                 {label}

@@ -591,9 +591,9 @@
 
 import React, { useEffect, useState, useRef } from "react";
 
-const LEFT_IMG   = "https://cdn.prod.website-files.com/69467bb9328ab81a546a000d/6947942aacfecd7e6cb7c287_ace285d709cd2966c5dddab2e9154d11_dishes-img-01.webp";
+const LEFT_IMG = "https://cdn.prod.website-files.com/69467bb9328ab81a546a000d/6947942aacfecd7e6cb7c287_ace285d709cd2966c5dddab2e9154d11_dishes-img-01.webp";
 const CENTER_IMG = "https://cdn.prod.website-files.com/69467bb9328ab81a546a000d/6995a427d699be01bfd3d8b7_dishes-img-02.png";
-const RIGHT_IMG  = "https://cdn.prod.website-files.com/69467bb9328ab81a546a000d/6995a4294e339372374f4681_dishes-img-03.png";
+const RIGHT_IMG = "https://cdn.prod.website-files.com/69467bb9328ab81a546a000d/6995a4294e339372374f4681_dishes-img-03.png";
 
 const FULL_TEXT = "Dinevera was born from a simple belief: you shouldn't have to choose between a premium dining experience and the convenience of home delivery.";
 
@@ -613,12 +613,12 @@ function useInView(ref, threshold = 0.1) {
 
 const Home = () => {
   const [visible, setVisible] = useState(false);
-  
+
   const platesRef = useRef(null);
   const textRef = useRef(null);
-  
-  const [litCount, setLitCount] = useState(0); 
-  const [plateProgress, setPlateProgress] = useState(0); 
+
+  const [litCount, setLitCount] = useState(0);
+  const [plateProgress, setPlateProgress] = useState(0);
 
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
@@ -640,12 +640,12 @@ const Home = () => {
       // 2. Plates Cinematic Shrink Logic
       if (platesRef.current) {
         const pRect = platesRef.current.getBoundingClientRect();
-        
+
         let pProg = 0;
         if (pRect.top < 150) {
-          pProg = (150 - pRect.top) / 450; 
+          pProg = (150 - pRect.top) / 450;
         }
-        
+
         setPlateProgress(Math.min(Math.max(pProg, 0), 1));
       }
     };
@@ -655,12 +655,12 @@ const Home = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const centerScale = 2.2 - (1.2 * plateProgress); 
+  const centerScale = 2.2 - (1.2 * plateProgress);
   const sidePlateTranslateY = 150 - (150 * plateProgress);
   const sidePlateOpacity = plateProgress;
 
   const fadeUp = (delay) => ({
-    opacity:   visible ? 1 : 0,
+    opacity: visible ? 1 : 0,
     transform: visible ? "translateY(0)" : "translateY(30px)",
     transition: `opacity 0.8s ease ${delay}s, transform 0.8s ease ${delay}s`,
   });
@@ -722,7 +722,7 @@ const Home = () => {
         ref={platesRef}
         style={{
           background: "#111",
-          padding: "450px 20px 150px", 
+          padding: "450px 20px 150px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -734,7 +734,7 @@ const Home = () => {
           justifyContent: "center",
           width: "100%",
           maxWidth: "1100px",
-          position: "relative" 
+          position: "relative"
         }}>
 
           {/* LEFT PLATE */}
@@ -747,7 +747,7 @@ const Home = () => {
             zIndex: 1,
             opacity: sidePlateOpacity,
             transform: `translateY(${sidePlateTranslateY}px)`,
-            transition: "transform 0.1s linear, opacity 0.1s linear", 
+            transition: "transform 0.1s linear, opacity 0.1s linear",
           }}>
             <img src={LEFT_IMG} alt="dish" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
@@ -787,36 +787,36 @@ const Home = () => {
 
         {/* ══════════ LETTER HIGHLIGHT TEXT WITH LEAVES ══════════ */}
         <div style={{ position: "relative", marginTop: "150px", maxWidth: "800px", width: "100%", display: "flex", justifyContent: "center" }}>
-          
+
           {/* Floating Leaf 1 - Top Left */}
-          <img 
-            src="https://cdn.prod.website-files.com/69467bb9328ab81a546a000d/694784ba5d22985a2808d60d_99000b9ef7741baba30053b90b1b4cc9_hero-flotiong-img-02.webp" 
-            alt="leaf" 
-            className="floating" 
-            style={{ 
-              position: "absolute", 
-              top: "-30px", 
-              left: "-30px", 
-              width: "70px", 
+          <img
+            src="https://cdn.prod.website-files.com/69467bb9328ab81a546a000d/694784ba5d22985a2808d60d_99000b9ef7741baba30053b90b1b4cc9_hero-flotiong-img-02.webp"
+            alt="leaf"
+            className="floating"
+            style={{
+              position: "absolute",
+              top: "-30px",
+              left: "-30px",
+              width: "70px",
               zIndex: 0,
               opacity: 0.85
-            }} 
+            }}
           />
 
           {/* Floating Leaf 2 - Middle Right */}
-          <img 
-            src="https://cdn.prod.website-files.com/69467bb9328ab81a546a000d/694784ba5d22985a2808d60d_99000b9ef7741baba30053b90b1b4cc9_hero-flotiong-img-02.webp" 
-            alt="leaf" 
-            className="floating-slow" 
-            style={{ 
-              position: "absolute", 
-              bottom: "40px", 
-              right: "-40px", 
-              width: "80px", 
+          <img
+            src="https://cdn.prod.website-files.com/69467bb9328ab81a546a000d/694784ba5d22985a2808d60d_99000b9ef7741baba30053b90b1b4cc9_hero-flotiong-img-02.webp"
+            alt="leaf"
+            className="floating-slow"
+            style={{
+              position: "absolute",
+              bottom: "40px",
+              right: "-40px",
+              width: "80px",
               transform: "rotate(30deg) scaleX(-1)", // Ghuma diya image ke hisaab se
               zIndex: 0,
               opacity: 0.85
-            }} 
+            }}
           />
 
           <p
