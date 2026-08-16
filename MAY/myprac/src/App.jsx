@@ -19,7 +19,6 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/menu/:id" element={<Menudetails />} />
-
           <Route path="/reservation" element={<Reservation />} />
           <Route path="/ourstory" element={<OurStory />} />
           <Route path="/contact" element={<Contact />} />
