@@ -6,7 +6,7 @@ import Newuser from "./Component/Newuser";
 const App = () => {
   return (
     <>
-     
+
       <BrowserRouter>
         <Header />
         <Routes>
