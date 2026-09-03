@@ -20,10 +20,6 @@ body {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   border: 2px solid rgb(217, 222, 235);
   height: 60px;
-  /* position: fixed;
-  width: 100%;
-  backdrop-filter: blur(12px); 
-  -webkit-backdrop-filter: blur(12px);  */
 }
 
 .link {
