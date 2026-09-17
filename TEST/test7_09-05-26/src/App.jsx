@@ -10,7 +10,6 @@ const App = () => {
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/form" element={<Productform />} />
-
       </Routes>
     </BrowserRouter>
   );
